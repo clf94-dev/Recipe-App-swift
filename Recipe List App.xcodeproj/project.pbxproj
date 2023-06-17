@@ -15,6 +15,7 @@
 		32EB8C202A3E02B4003B4A1C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB8C1F2A3E02B4003B4A1C /* Recipe.swift */; };
 		32EB8C222A3E0577003B4A1C /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB8C212A3E0577003B4A1C /* RecipeModel.swift */; };
 		32EB8C242A3E06DC003B4A1C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB8C232A3E06DC003B4A1C /* DataService.swift */; };
+		32EB8C262A3E138A003B4A1C /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB8C252A3E138A003B4A1C /* RecipeDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		32EB8C1F2A3E02B4003B4A1C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		32EB8C212A3E0577003B4A1C /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		32EB8C232A3E06DC003B4A1C /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		32EB8C252A3E138A003B4A1C /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				32EB8C0A2A3E0114003B4A1C /* RecipeListView.swift */,
+				32EB8C252A3E138A003B4A1C /* RecipeDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32EB8C202A3E02B4003B4A1C /* Recipe.swift in Sources */,
+				32EB8C262A3E138A003B4A1C /* RecipeDetailView.swift in Sources */,
 				32EB8C222A3E0577003B4A1C /* RecipeModel.swift in Sources */,
 				32EB8C0B2A3E0114003B4A1C /* RecipeListView.swift in Sources */,
 				32EB8C092A3E0114003B4A1C /* Recipe_List_App.swift in Sources */,
