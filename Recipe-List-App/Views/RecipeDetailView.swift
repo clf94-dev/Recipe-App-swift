@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct RecipeDetailView: View {
-    
+    @State var selectedIndex = "1"
     var recipe: Recipe
     var body: some View {
         ScrollView {
@@ -18,6 +18,16 @@ struct RecipeDetailView: View {
                 Image(recipe.image)
                     .resizable()
                     .scaledToFill()
+                Text(recipe.name)
+                Text("Choose your serving size")
+                Picker("Number of people", selection: $selectedIndex){
+                    Text("1").tag(1)
+                    Text("2").tag(2)
+                    Text("4").tag(4)
+                    Text("6").tag(6)
+                    Text("8").tag(8)
+                }.pickerStyle(SegmentedPickerStyle())
+                Divider()
                 // MARK: Recipe ingredients
                 VStack(alignment: .leading){
                     Text("Ingredients:")
