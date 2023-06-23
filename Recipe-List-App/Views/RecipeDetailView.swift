@@ -19,14 +19,21 @@ struct RecipeDetailView: View {
                     .resizable()
                     .scaledToFill()
                 Text(recipe.name)
-                Text("Choose your serving size")
-                Picker("Servings", selection: $selectedIndex){
-                    Text("2").tag(2)
-                    Text("4").tag(4)
-                    Text("6").tag(6)
-                    Text("8").tag(8)
-                }.pickerStyle(SegmentedPickerStyle())
-                Text("Selected servings: \(selectedIndex)")
+                    .padding(.horizontal, 15)
+                    .bold()
+                    .font(.largeTitle)
+                // MARK: Serving size picker
+                VStack (alignment: .leading){
+                    Text("Select your serving size")
+                    Picker("Servings", selection: $selectedIndex){
+                        Text("2").tag(2)
+                        Text("4").tag(4)
+                        Text("6").tag(6)
+                        Text("8").tag(8)
+                    }.pickerStyle(SegmentedPickerStyle())
+                        .frame(width: 160)
+                }.padding()
+                 // Text("Selected servings: \(selectedIndex)")
                 Divider()
                 // MARK: Recipe ingredients
                 VStack(alignment: .leading){
@@ -34,7 +41,7 @@ struct RecipeDetailView: View {
                         .font(.headline)
                         .padding(.bottom,10)
                     ForEach(recipe.ingredients){ ingredient in
-                        Text("• " + ingredient.name)
+                        Text("• " + RecipeModel.getPortion(ingredient: ingredient, recipeServings: recipe.servings, targetServings: selectedIndex) + " " + ingredient.name.lowercased())
                             .padding(.bottom, 3)
                     }
                 }.padding(.all)
