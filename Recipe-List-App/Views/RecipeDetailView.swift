@@ -19,7 +19,8 @@ struct RecipeDetailView: View {
                     .resizable()
                     .scaledToFill()
                 Text(recipe.name)
-                    .padding(.horizontal, 15)
+                    .padding(.top, 20)
+                    .padding(.leading)
                     .bold()
                     .font(.largeTitle)
                 // MARK: Serving size picker
