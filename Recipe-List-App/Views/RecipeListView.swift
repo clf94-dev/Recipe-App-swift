@@ -29,8 +29,14 @@ struct RecipeListView: View {
                                         .frame(width:80, height:80, alignment: .center)
                                         .clipped()
                                         .cornerRadius(5)
-                                    Text(model.recipes[index].name)
-                                        .foregroundColor(.black)
+                                    VStack (alignment: .leading) {
+                                        Text(model.recipes[index].name)
+                                            .foregroundColor(.black)
+                                            .bold()
+                                        RecipeHighlights(highlights: model.recipes[index].highlights)
+                                            .foregroundColor(.black)
+                                            .font(.system(size: 14))
+                                    }
                                 }
                             })
                             
