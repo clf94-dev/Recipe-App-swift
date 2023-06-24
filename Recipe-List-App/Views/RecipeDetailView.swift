@@ -13,7 +13,7 @@ struct RecipeDetailView: View {
     var recipe: Recipe
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 //  MARK: Recipe image
                 Image(recipe.image)
                     .resizable()
@@ -21,11 +21,11 @@ struct RecipeDetailView: View {
                 Text(recipe.name)
                     .padding(.top, 20)
                     .padding(.leading)
-                    .bold()
-                    .font(.largeTitle)
+                    .font(Font.custom("Avenir Heavy", size: 32))
                 // MARK: Serving size picker
                 VStack (alignment: .leading){
                     Text("Select your serving size")
+                        .font(Font.custom("Avenir", size: 15))
                     Picker("Servings", selection: $selectedIndex){
                         Text("2").tag(2)
                         Text("4").tag(4)
@@ -33,17 +33,19 @@ struct RecipeDetailView: View {
                         Text("8").tag(8)
                     }.pickerStyle(SegmentedPickerStyle())
                         .frame(width: 160)
+                        .font(Font.custom("Avenir", size: 15))
                 }.padding()
                  // Text("Selected servings: \(selectedIndex)")
                 Divider()
                 // MARK: Recipe ingredients
                 VStack(alignment: .leading){
                     Text("Ingredients:")
-                        .font(.headline)
+                        .font(Font.custom("Avenir Heavy", size: 16))
                         .padding(.bottom,10)
                     ForEach(recipe.ingredients){ ingredient in
                         Text("• " + RecipeModel.getPortion(ingredient: ingredient, recipeServings: recipe.servings, targetServings: selectedIndex) + " " + ingredient.name.lowercased())
                             .padding(.bottom, 3)
+                            .font(Font.custom("Avenir", size: 15))
                     }
                 }.padding(.all)
                 // MARK: Divider
@@ -51,11 +53,12 @@ struct RecipeDetailView: View {
                 // MARK: Recipe ingredients
                 VStack(alignment: .leading){
                     Text("Directions:")
-                        .font(.headline)
+                        .font(Font.custom("Avenir Heavy", size: 16))
                         .padding(.vertical,10)
                     ForEach(0..<recipe.directions.count, id: \.self){ index in
                         Text( String(index) + " " + recipe.directions[index])
                             .padding(.bottom, 5)
+                            .font(Font.custom("Avenir", size: 15))
                     }
                 }.padding(.all)
             }

@@ -19,6 +19,7 @@ struct RecipeTabView: View {
                     VStack{
                         Image(systemName:"star")
                         Text("Featured")
+                            .font(Font.custom("Avenir", size: 15))
                     }
                 }
                 .tag(1)
@@ -28,6 +29,7 @@ struct RecipeTabView: View {
                     VStack{
                         Image(systemName:"pencil")
                         Text("List")
+                            .font(Font.custom("Avenir", size: 15))
                     }
                 }
                 .tag(2)
