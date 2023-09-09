@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RecipeListView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+
     @EnvironmentObject var model:RecipeModel
     
     var body: some View {
@@ -24,7 +26,9 @@ struct RecipeListView: View {
                         ForEach(0..<model.recipes.count, id: \.self) { index in
                             NavigationLink(destination: RecipeDetailView(recipe: model.recipes[index]), label:{
                                 HStack(spacing:20){
-                                    Image(model.recipes[index].image)
+                                    let image = UIImage(data: model.recipes[index].image ?? Data()) ?? UIImage()
+
+                                    Image(uiImage: image)
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width:80, height:80, alignment: .center)

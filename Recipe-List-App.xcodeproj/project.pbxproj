@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		325826FE2A4619C20072F4F6 /* Rational.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325826FD2A4619C20072F4F6 /* Rational.swift */; };
 		325827002A472C690072F4F6 /* RecipeHighlights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325826FF2A472C690072F4F6 /* RecipeHighlights.swift */; };
+		32A0B8352AAC406C00595B8A /* Recipe Data Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32A0B8332AAC406C00595B8A /* Recipe Data Model.xcdatamodeld */; };
+		32A0B83A2AAC43E300595B8A /* Ingredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A0B8362AAC43E300595B8A /* Ingredient+CoreDataClass.swift */; };
+		32A0B83B2AAC43E300595B8A /* Ingredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A0B8372AAC43E300595B8A /* Ingredient+CoreDataProperties.swift */; };
+		32A0B83C2AAC43E300595B8A /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A0B8382AAC43E300595B8A /* Recipe+CoreDataClass.swift */; };
+		32A0B83D2AAC43E300595B8A /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A0B8392AAC43E300595B8A /* Recipe+CoreDataProperties.swift */; };
+		32A0B83F2AAC48FC00595B8A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A0B83E2AAC48FC00595B8A /* Persistence.swift */; };
 		32B5ABD42A3F1345004A8B43 /* RecipeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B5ABD32A3F1345004A8B43 /* RecipeTabView.swift */; };
 		32B5ABD62A3F5F39004A8B43 /* recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 32B5ABD52A3F5F39004A8B43 /* recipes.json */; };
 		32B5ABD82A3F627F004A8B43 /* RecipeFeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B5ABD72A3F627F004A8B43 /* RecipeFeaturedView.swift */; };
@@ -25,6 +31,12 @@
 /* Begin PBXFileReference section */
 		325826FD2A4619C20072F4F6 /* Rational.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rational.swift; sourceTree = "<group>"; };
 		325826FF2A472C690072F4F6 /* RecipeHighlights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHighlights.swift; sourceTree = "<group>"; };
+		32A0B8342AAC406C00595B8A /* Recipe Data Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Recipe Data Model.xcdatamodel"; sourceTree = "<group>"; };
+		32A0B8362AAC43E300595B8A /* Ingredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		32A0B8372AAC43E300595B8A /* Ingredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		32A0B8382AAC43E300595B8A /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		32A0B8392AAC43E300595B8A /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		32A0B83E2AAC48FC00595B8A /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		32B5ABD32A3F1345004A8B43 /* RecipeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTabView.swift; sourceTree = "<group>"; };
 		32B5ABD52A3F5F39004A8B43 /* recipes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = recipes.json; path = "../../../Learn iOS in 90 Days/Day 36/recipes.json"; sourceTree = "<group>"; };
 		32B5ABD72A3F627F004A8B43 /* RecipeFeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFeaturedView.swift; sourceTree = "<group>"; };
@@ -129,7 +141,13 @@
 		32EB8C192A3E0196003B4A1C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				32A0B83E2AAC48FC00595B8A /* Persistence.swift */,
+				32A0B8362AAC43E300595B8A /* Ingredient+CoreDataClass.swift */,
+				32A0B8372AAC43E300595B8A /* Ingredient+CoreDataProperties.swift */,
+				32A0B8382AAC43E300595B8A /* Recipe+CoreDataClass.swift */,
+				32A0B8392AAC43E300595B8A /* Recipe+CoreDataProperties.swift */,
 				32B5ABD52A3F5F39004A8B43 /* recipes.json */,
+				32A0B8332AAC406C00595B8A /* Recipe Data Model.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -213,6 +231,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A0B83D2AAC43E300595B8A /* Recipe+CoreDataProperties.swift in Sources */,
+				32A0B83F2AAC48FC00595B8A /* Persistence.swift in Sources */,
 				32EB8C202A3E02B4003B4A1C /* Recipe.swift in Sources */,
 				32EB8C262A3E138A003B4A1C /* RecipeDetailView.swift in Sources */,
 				325827002A472C690072F4F6 /* RecipeHighlights.swift in Sources */,
@@ -220,9 +240,13 @@
 				32EB8C222A3E0577003B4A1C /* RecipeModel.swift in Sources */,
 				32EB8C0B2A3E0114003B4A1C /* RecipeListView.swift in Sources */,
 				32EB8C092A3E0114003B4A1C /* Recipe_App.swift in Sources */,
+				32A0B83B2AAC43E300595B8A /* Ingredient+CoreDataProperties.swift in Sources */,
 				32EB8C242A3E06DC003B4A1C /* DataService.swift in Sources */,
+				32A0B83C2AAC43E300595B8A /* Recipe+CoreDataClass.swift in Sources */,
 				32B5ABD82A3F627F004A8B43 /* RecipeFeaturedView.swift in Sources */,
 				32B5ABD42A3F1345004A8B43 /* RecipeTabView.swift in Sources */,
+				32A0B83A2AAC43E300595B8A /* Ingredient+CoreDataClass.swift in Sources */,
+				32A0B8352AAC406C00595B8A /* Recipe Data Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +447,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		32A0B8332AAC406C00595B8A /* Recipe Data Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				32A0B8342AAC406C00595B8A /* Recipe Data Model.xcdatamodel */,
+			);
+			currentVersion = 32A0B8342AAC406C00595B8A /* Recipe Data Model.xcdatamodel */;
+			path = "Recipe Data Model.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 32EB8BFD2A3E0114003B4A1C /* Project object */;
 }
