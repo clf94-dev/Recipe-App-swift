@@ -34,7 +34,8 @@ struct RecipeListView: View {
                     .bold()
                     .font(Font.custom("Avenir Heavy", size: 32))
                     .padding(.top, 40)
-                TextField("Filter by ...", text: $filterBy)
+                SearchBarView(filterBy: $filterBy)
+                    .padding([.trailing,.bottom])
                 ScrollView{
                     LazyVStack (alignment: .leading) {
                         ForEach(filteredRecipes) { recipe in
