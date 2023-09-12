@@ -10,7 +10,9 @@ import SwiftUI
 struct RecipeListView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @EnvironmentObject var model:RecipeModel
+    // @EnvironmentObject var model:RecipeModel
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var recipes: FetchedResults<Recipe>
     
     var body: some View {
         
@@ -23,10 +25,10 @@ struct RecipeListView: View {
                     
                 ScrollView{
                     LazyVStack (alignment: .leading) {
-                        ForEach(0..<model.recipes.count, id: \.self) { index in
-                            NavigationLink(destination: RecipeDetailView(recipe: model.recipes[index]), label:{
+                        ForEach(0..<recipes.count, id: \.self) { index in
+                            NavigationLink(destination: RecipeDetailView(recipe: recipes[index]), label:{
                                 HStack(spacing:20){
-                                    let image = UIImage(data: model.recipes[index].image ?? Data()) ?? UIImage()
+                                    let image = UIImage(data: recipes[index].image ?? Data()) ?? UIImage()
 
                                     Image(uiImage: image)
                                         .resizable()
@@ -35,10 +37,10 @@ struct RecipeListView: View {
                                         .clipped()
                                         .cornerRadius(5)
                                     VStack (alignment: .leading) {
-                                        Text(model.recipes[index].name)
+                                        Text(recipes[index].name)
                                             .foregroundColor(.black)
                                             .font(Font.custom("Avenir Heavy", size: 16))
-                                        RecipeHighlights(highlights: model.recipes[index].highlights)
+                                        RecipeHighlights(highlights: recipes[index].highlights)
                                             .foregroundColor(.black)
                                     }
                                 }

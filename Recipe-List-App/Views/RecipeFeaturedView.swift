@@ -10,10 +10,12 @@ import SwiftUI
 struct RecipeFeaturedView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @EnvironmentObject var model:RecipeModel
+    // @EnvironmentObject var model:RecipeModel
     @State var isDetailViewShowing = false
     
     @State var tabSelectionIndex = 0
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var recipes: FetchedResults<Recipe>
     
     var body: some View {
         
@@ -27,8 +29,8 @@ struct RecipeFeaturedView: View {
             GeometryReader {geo in
                 TabView(selection: $tabSelectionIndex){
                
-                    ForEach(0..<model.recipes.count) { index in
-                        if model.recipes[index].featured == true {
+                    ForEach(0..<recipes.count) { index in
+                        if recipes[index].featured == true {
                             
                             Button(action: {
                                 // show detail on tab
@@ -38,12 +40,12 @@ struct RecipeFeaturedView: View {
                                     Rectangle()
                                         .foregroundColor(.white)
                                     VStack (spacing: 0){
-                                        let image = UIImage(data: model.recipes[index].image ?? Data()) ?? UIImage()
+                                        let image = UIImage(data: recipes[index].image ?? Data()) ?? UIImage()
                                         Image(uiImage: image)
                                             .resizable()
                                             .aspectRatio(contentMode: .fill)
                                             .clipped()
-                                        Text(model.recipes[index].name)
+                                        Text(recipes[index].name)
                                             .padding(5)
                                         
                                     }
@@ -61,7 +63,7 @@ struct RecipeFeaturedView: View {
                     
                     }.sheet(isPresented: $isDetailViewShowing){
                         //Show recipe detail view
-                        RecipeDetailView(recipe: model.recipes[tabSelectionIndex])
+                        RecipeDetailView(recipe: recipes[tabSelectionIndex])
                         
                         
                     }
@@ -71,11 +73,11 @@ struct RecipeFeaturedView: View {
             VStack (alignment: .leading, spacing: 10) {
                 Text("Preparation Time")
                     .font(Font.custom("Avenir Heavy", size: 16))
-                Text(model.recipes[tabSelectionIndex].prepTime)
+                Text(recipes[tabSelectionIndex].prepTime)
                     .font(Font.custom("Avenir", size: 15))
                 Text("Highlights")
                     .font(Font.custom("Avenir Heavy", size: 16))
-                RecipeHighlights(highlights: model.recipes[tabSelectionIndex].highlights)
+                RecipeHighlights(highlights: recipes[tabSelectionIndex].highlights)
             }.padding(.leading)
                 .padding(.bottom,10)
             }
@@ -89,7 +91,7 @@ struct RecipeFeaturedView: View {
     }
     
     func findFirstFeaturedItemIndex(){
-        let index = model.recipes.firstIndex { recipe in
+        let index = recipes.firstIndex { recipe in
             
             return recipe.featured
         }
