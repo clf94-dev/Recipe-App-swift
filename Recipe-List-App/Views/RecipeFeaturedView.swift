@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct RecipeFeaturedView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
     // @EnvironmentObject var model:RecipeModel
     @State var isDetailViewShowing = false
     
     @State var tabSelectionIndex = 0
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var recipes: FetchedResults<Recipe>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)], predicate: NSPredicate(format: "featured == true")) var recipes: FetchedResults<Recipe>
     
     var body: some View {
         
@@ -28,48 +26,48 @@ struct RecipeFeaturedView: View {
             
             GeometryReader {geo in
                 TabView(selection: $tabSelectionIndex){
-               
+                    
                     ForEach(0..<recipes.count) { index in
-                        if recipes[index].featured == true {
-                            
-                            Button(action: {
-                                // show detail on tab
-                                self.isDetailViewShowing = true
-                            }, label: {
-                                ZStack {
-                                    Rectangle()
-                                        .foregroundColor(.white)
-                                    VStack (spacing: 0){
-                                        let image = UIImage(data: recipes[index].image ?? Data()) ?? UIImage()
-                                        Image(uiImage: image)
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                            .clipped()
-                                        Text(recipes[index].name)
-                                            .padding(5)
-                                        
-                                    }
+                        //                        if recipes[index].featured == true {
+                        
+                        Button(action: {
+                            // show detail on tab
+                            self.isDetailViewShowing = true
+                        }, label: {
+                            ZStack {
+                                Rectangle()
+                                    .foregroundColor(.white)
+                                VStack (spacing: 0){
+                                    let image = UIImage(data: recipes[index].image ?? Data()) ?? UIImage()
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .clipped()
+                                    Text(recipes[index].name)
+                                        .padding(5)
+                                    
                                 }
-                            }).tag(index)
-                            
+                            }
+                        }).tag(index)
+                        
                             .buttonStyle(PlainButtonStyle())
                             .frame(width: geo.size.width - 40, height: geo.size.height - 100, alignment: .center)
                             .cornerRadius(15)
                             .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.5), radius: 10, x: -5, y:5)
-                        }
+                        //                        }
                         // .shadow(radius: 10)
                         
                     }
                     
-                    }.sheet(isPresented: $isDetailViewShowing){
-                        //Show recipe detail view
-                        RecipeDetailView(recipe: recipes[tabSelectionIndex])
-                        
-                        
-                    }
-                   
-                }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
-                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                }.sheet(isPresented: $isDetailViewShowing){
+                    //Show recipe detail view
+                    RecipeDetailView(recipe: recipes[tabSelectionIndex])
+                    
+                    
+                }
+                
+            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
             VStack (alignment: .leading, spacing: 10) {
                 Text("Preparation Time")
                     .font(Font.custom("Avenir Heavy", size: 16))
@@ -80,11 +78,11 @@ struct RecipeFeaturedView: View {
                 RecipeHighlights(highlights: recipes[tabSelectionIndex].highlights)
             }.padding(.leading)
                 .padding(.bottom,10)
-            }
+        }
         .onAppear(perform: {
             findFirstFeaturedItemIndex()
         })
-           
+        
         
         
         
@@ -95,7 +93,7 @@ struct RecipeFeaturedView: View {
             
             return recipe.featured
         }
-    tabSelectionIndex = index ?? 0
+        tabSelectionIndex = index ?? 0
         
     }
 }
