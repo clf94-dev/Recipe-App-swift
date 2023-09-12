@@ -72,6 +72,10 @@ struct RecipeListView: View {
             }
                 .navigationBarBackButtonHidden(true)
                 .padding(.leading)
+                .onTapGesture {
+                    // resign first responder
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }
             
         }
     }
