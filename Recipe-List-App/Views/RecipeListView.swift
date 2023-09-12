@@ -14,6 +14,18 @@ struct RecipeListView: View {
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var recipes: FetchedResults<Recipe>
     
+    @State private var filterBy = ""
+    
+    private var filteredRecipes: [Recipe] {
+        if filterBy.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return Array(recipes)
+        } else {
+            // filter by the search string
+            return recipes.filter { r in
+                r.name.contains(filterBy)
+            }
+        }
+    }
     var body: some View {
         
         NavigationView {
@@ -22,13 +34,13 @@ struct RecipeListView: View {
                     .bold()
                     .font(Font.custom("Avenir Heavy", size: 32))
                     .padding(.top, 40)
-                    
+                TextField("Filter by ...", text: $filterBy)
                 ScrollView{
                     LazyVStack (alignment: .leading) {
-                        ForEach(0..<recipes.count, id: \.self) { index in
-                            NavigationLink(destination: RecipeDetailView(recipe: recipes[index]), label:{
+                        ForEach(filteredRecipes) { recipe in
+                            NavigationLink(destination: RecipeDetailView(recipe: recipe), label:{
                                 HStack(spacing:20){
-                                    let image = UIImage(data: recipes[index].image ?? Data()) ?? UIImage()
+                                    let image = UIImage(data: recipe.image ?? Data()) ?? UIImage()
 
                                     Image(uiImage: image)
                                         .resizable()
@@ -37,10 +49,10 @@ struct RecipeListView: View {
                                         .clipped()
                                         .cornerRadius(5)
                                     VStack (alignment: .leading) {
-                                        Text(recipes[index].name)
+                                        Text(recipe.name)
                                             .foregroundColor(.black)
                                             .font(Font.custom("Avenir Heavy", size: 16))
-                                        RecipeHighlights(highlights: recipes[index].highlights)
+                                        RecipeHighlights(highlights: recipe.highlights)
                                             .foregroundColor(.black)
                                     }
                                 }
