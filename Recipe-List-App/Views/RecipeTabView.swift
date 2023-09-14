@@ -33,7 +33,16 @@ struct RecipeTabView: View {
                     }
                 }
                 .tag(2)
-                
+                // MARK: List tab
+                AddRecipeView()
+                .tabItem{
+                    VStack{
+                        Image(systemName:"plus")
+                        Text("Add")
+                            .font(Font.custom("Avenir", size: 15))
+                    }
+                }
+                .tag(3)
             }.environmentObject(RecipeModel())
     }
 }
