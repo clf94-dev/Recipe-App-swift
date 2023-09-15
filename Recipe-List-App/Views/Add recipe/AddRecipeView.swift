@@ -21,6 +21,8 @@ struct AddRecipeView: View {
     
     @State private var isPickerVisible: Bool = false
     @State private var selectedImageSource = UIImagePickerController.SourceType.photoLibrary
+    
+    @State private var recipeImage: UIImage?
     var body: some View {
         VStack{
             HStack{
@@ -53,7 +55,7 @@ struct AddRecipeView: View {
                         }
                         
                     }.sheet(isPresented: $isPickerVisible, content: {
-                        ImagePicker(selectedSource: selectedImageSource)
+                        ImagePicker(selectedSource: selectedImageSource, selectedImage: $recipeImage)
                     })
                   
                   AddMetaData(name: $name, summary: $summary, prepTime: $prepTime, cookTime: $cookTime, totalTime: $totalTime, servings: $servings)
