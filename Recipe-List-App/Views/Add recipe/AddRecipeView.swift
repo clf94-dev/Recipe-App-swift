@@ -31,9 +31,14 @@ struct AddRecipeView: View {
             ScrollView(showsIndicators: false){
                 VStack{
                   AddMetaData(name: $name, summary: $summary, prepTime: $prepTime, cookTime: $cookTime, totalTime: $totalTime, servings: $servings)
+                    
+                  AddListData(list: $highlights, title: "Highlights", placeholderText: "Vegetables")
+                    
+                  AddListData(list: $directions, title: "Directions", placeholderText: "Add oil to the pan")
                 }
+               
             }
-        }
+        }.padding()
     }
 }
 
