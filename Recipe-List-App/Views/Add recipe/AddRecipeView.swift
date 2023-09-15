@@ -17,6 +17,7 @@ struct AddRecipeView: View {
     
     @State private var highlights = [String]()
     @State private var directions = [String]()
+    @State private var ingredients = [IngredientJSON]()
     var body: some View {
         VStack{
             HStack{
@@ -35,6 +36,7 @@ struct AddRecipeView: View {
                   AddListData(list: $highlights, title: "Highlights", placeholderText: "Vegetables")
                     
                   AddListData(list: $directions, title: "Directions", placeholderText: "Add oil to the pan")
+                  AddIngredientData(ingredients: $ingredients)
                 }
                
             }

@@ -28,4 +28,8 @@ class IngredientJSON: Identifiable, Decodable{
     var num:Int?
     var unit:String?
     var denom:Int?
+    
+    init() {
+        name = ""
+    }
 }
