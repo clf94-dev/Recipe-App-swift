@@ -22,10 +22,14 @@ struct AddRecipeView: View {
         VStack{
             HStack{
                 Button("Clear"){
+                    clearRecipe()
                     
                 }
                 Spacer()
                 Button("Add"){
+                    
+                    addRecipe()
+                    clearRecipe()
                     
                 }
             }
@@ -41,6 +45,22 @@ struct AddRecipeView: View {
                
             }
         }.padding()
+    }
+    
+    private func clearRecipe () {
+        name = ""
+        summary = ""
+        prepTime = ""
+        cookTime = ""
+        totalTime = ""
+        servings = ""
+        
+        highlights = [String]()
+        directions = [String]()
+        ingredients = [IngredientJSON]()
+    }
+    private func addRecipe() {
+        
     }
 }
 
