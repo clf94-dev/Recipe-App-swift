@@ -55,7 +55,7 @@ struct AddRecipeView: View {
                         }
                         
                     }.sheet(isPresented: $isPickerVisible, content: {
-                        ImagePicker(selectedSource: selectedImageSource, selectedImage: $recipeImage)
+                        ImagePicker(selectedSource: selectedImageSource, selectedImage: $recipeImage, isPickerVisible: $isPickerVisible)
                     })
                   
                   AddMetaData(name: $name, summary: $summary, prepTime: $prepTime, cookTime: $cookTime, totalTime: $totalTime, servings: $servings)

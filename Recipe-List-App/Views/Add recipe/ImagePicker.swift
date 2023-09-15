@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
+    
     var selectedSource: UIImagePickerController.SourceType
     @Binding var selectedImage: UIImage?
+    @Binding var isPickerVisible: Bool
     
     func makeUIViewController(context: Context) -> UIImagePickerController{
         let imagePickerController = UIImagePickerController()
@@ -35,6 +37,7 @@ struct ImagePicker: UIViewControllerRepresentable {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 parent.selectedImage = image
             }
+            parent.isPickerVisible = false
         }
     }
 }
