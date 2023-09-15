@@ -9,4 +9,8 @@ import Foundation
 
 struct Constants {
     static var isDataPreloaded = "isDataPreloaded"
+    
+    static var featuredView = 1
+    static var listView = 2
+    static var addRecipeView = 3
 }

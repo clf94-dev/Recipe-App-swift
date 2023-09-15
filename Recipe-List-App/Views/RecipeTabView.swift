@@ -22,7 +22,7 @@ struct RecipeTabView: View {
                             .font(Font.custom("Avenir", size: 15))
                     }
                 }
-                .tag(1)
+                .tag(Constants.featuredView)
                 // MARK: List tab
                 RecipeListView()
                 .tabItem{
@@ -32,7 +32,7 @@ struct RecipeTabView: View {
                             .font(Font.custom("Avenir", size: 15))
                     }
                 }
-                .tag(2)
+                .tag(Constants.listView)
                 // MARK: List tab
                 AddRecipeView(selectedTab: $tabIndex)
                 .tabItem{
@@ -42,7 +42,7 @@ struct RecipeTabView: View {
                             .font(Font.custom("Avenir", size: 15))
                     }
                 }
-                .tag(3)
+                .tag(Constants.addRecipeView)
             }.environmentObject(RecipeModel())
     }
 }

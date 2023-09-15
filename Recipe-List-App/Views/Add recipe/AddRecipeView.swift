@@ -38,7 +38,7 @@ struct AddRecipeView: View {
                 Button("Add"){
                     addRecipe()
                     clearRecipe()
-                    selectedTab = 2
+                    selectedTab = Constants.listView
                 }
             }
             ScrollView(showsIndicators: false){
