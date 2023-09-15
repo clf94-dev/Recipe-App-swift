@@ -87,6 +87,7 @@ struct AddRecipeView: View {
         highlights = [String]()
         directions = [String]()
         ingredients = [IngredientJSON]()
+        recipeImage = nil
     }
     private func addRecipe() {
         
