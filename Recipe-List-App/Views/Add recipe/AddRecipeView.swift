@@ -35,6 +35,20 @@ struct AddRecipeView: View {
             }
             ScrollView(showsIndicators: false){
                 VStack{
+                  Image("noImageAvailable")
+                        .resizable()
+                        .scaledToFit()
+                    HStack{
+                        Button("Photo Library"){
+                            
+                        }
+                        Text(" | ")
+                        Button("Camera"){
+                            
+                        }
+                        
+                    }
+                  
                   AddMetaData(name: $name, summary: $summary, prepTime: $prepTime, cookTime: $cookTime, totalTime: $totalTime, servings: $servings)
                     
                   AddListData(list: $highlights, title: "Highlights", placeholderText: "Vegetables")
