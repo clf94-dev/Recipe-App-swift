@@ -40,9 +40,15 @@ struct AddRecipeView: View {
             }
             ScrollView(showsIndicators: false){
                 VStack{
-                  Image("noImageAvailable")
-                        .resizable()
-                        .scaledToFit()
+                    if (recipeImage != nil){
+                        Image(uiImage: recipeImage! )
+                            .resizable()
+                            .scaledToFit()
+                    }else {
+                        Image("noImageAvailable")
+                            .resizable()
+                            .scaledToFit()
+                    }
                     HStack{
                         Button("Photo Library"){
                             isPickerVisible = true
