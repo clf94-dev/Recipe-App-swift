@@ -34,7 +34,7 @@ struct RecipeTabView: View {
                 }
                 .tag(2)
                 // MARK: List tab
-                AddRecipeView()
+                AddRecipeView(selectedTab: $tabIndex)
                 .tabItem{
                     VStack{
                         Image(systemName:"plus")

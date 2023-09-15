@@ -10,6 +10,8 @@ import SwiftUI
 struct AddRecipeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
+    @Binding var selectedTab: Int
+    
     @State private var name = ""
     @State private var summary = ""
     @State private var prepTime = ""
@@ -34,10 +36,9 @@ struct AddRecipeView: View {
                 }
                 Spacer()
                 Button("Add"){
-                    
                     addRecipe()
                     clearRecipe()
-                    
+                    selectedTab = 2
                 }
             }
             ScrollView(showsIndicators: false){
@@ -127,6 +128,3 @@ struct AddRecipeView: View {
     }
 }
 
-#Preview {
-    AddRecipeView()
-}
