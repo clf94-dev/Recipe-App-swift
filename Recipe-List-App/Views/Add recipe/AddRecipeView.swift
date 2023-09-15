@@ -51,13 +51,13 @@ struct AddRecipeView: View {
                     }
                     HStack{
                         Button("Photo Library"){
-                            isPickerVisible = true
                             selectedImageSource = UIImagePickerController.SourceType.photoLibrary
-                            
+                            isPickerVisible = true
                         }
                         Text(" | ")
                         Button("Camera"){
-                            
+                            selectedImageSource = UIImagePickerController.SourceType.camera
+                            isPickerVisible = true
                         }
                         
                     }.sheet(isPresented: $isPickerVisible, content: {
